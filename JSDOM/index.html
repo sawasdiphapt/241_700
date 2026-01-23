@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="radio" name="gender" value="Male" onchange="changeGender()"> Male
+    <input type="radio" name="gender" value="Female" onchange="changeGender()"> Female
+    <script>
+        /*let fnameInput = document.getElementById('fname');
+        console.log(fnameInput.value);
+        let lnameInput = document.getElementById('lname');
+        console.log(lnameInput.value);
+        let inputs = document.querySelector('#fname');
+        ///console.log(inputs.length); // 2
+        ///for (let i = 0; i < inputs.length;i++){
+            console.log(inputs.value);
+       /// }
+       let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+       console.log(checkboxes)
+       for (let i = 0; i < checkboxes.length; i++) {
+        console.log(checkboxes[i].value);
+        }
+       function userClick(){
+        console.log("Button was clicked!!");
+       }
+       function divClick(){
+        console.log("Div was Click");
+       }*/
+      function changeGender(){
+        // เลือกทั้งหมด
+        let genders = document.querySelectorAll('input[name="gender"]');
+        // ดูว่าอันไหนเช็ค
+        for (let i = 0; i< genders.length; i++) {
+            if(genders[i].checked){
+                console.log("Gender Selected: "+ genders[i].value)
+            }
+        }
+      }
+    </script>
+</body>
+</html>
