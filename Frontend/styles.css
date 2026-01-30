@@ -1,0 +1,180 @@
+/* styles.css - Minimal Overwatch Theme */
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,700;1,700&display=swap');
+
+:root {
+    --ow-orange: #f99e1a;  /* สีส้มเอกลักษณ์ */
+    --ow-dark: #2f3640;    /* สีเทาเข้มเกือบดำ */
+    --ow-grey: #f0f2f5;    /* สีพื้นหลังเทาอ่อน */
+    --ow-blue: #00c3ff;    /* สีฟ้านีออน (เอาไว้แต่งนิดหน่อย) */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Kanit', sans-serif; /* ใช้ Kanit ให้ดูโมเดิร์นเข้ากับภาษาไทย */
+    background-color: var(--ow-grey);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+    /* ลายเส้นพื้นหลังจางๆ ให้ดู Tech ขึ้นมานิดนึง */
+    background-image: linear-gradient(45deg, #e8eaed 25%, transparent 25%, transparent 75%, #e8eaed 75%, #e8eaed),
+                      linear-gradient(45deg, #e8eaed 25%, transparent 25%, transparent 75%, #e8eaed 75%, #e8eaed);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+}
+
+/* กล่องฟอร์ม */
+.container {
+    background-color: white;
+    width: 100%;
+    max-width: 480px;
+    padding: 40px;
+    /* มุมตัด ไม่โค้งมน (สไตล์ Overwatch) */
+    border-radius: 4px; 
+    /* ขอบบนสีส้ม เส้นหนาๆ */
+    border-top: 5px solid var(--ow-orange);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+/* ตกแต่งมุมกล่องให้ดูเป็น HUD */
+.container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 20px 20px;
+    border-color: transparent transparent var(--ow-dark) transparent;
+}
+
+/* หัวข้อ */
+.header {
+    text-align: left; /* Overwatch ชอบจัดซ้าย */
+    font-size: 32px;
+    font-weight: 900;
+    font-style: italic; /* ตัวเอียง เอกลักษณ์เขาแหละ */
+    color: var(--ow-dark);
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Layout */
+.flex {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.form-input {
+    margin-bottom: 20px;
+    color: var(--ow-dark);
+}
+
+/* หัวข้อหน้า input */
+.header-form {
+    font-weight: 700;
+    font-style: italic; /* เอียงให้เข้าธีม */
+    min-width: 80px;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+/* ช่องกรอกข้อมูล - เหลี่ยมจัด */
+input.form {
+    flex: 1;
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 2px; /* เหลี่ยมๆ */
+    font-family: 'Kanit', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #f9f9f9;
+    transition: all 0.2s;
+    outline: none;
+}
+
+/* เวลากดช่องกรอก */
+input.form:focus {
+    border-color: var(--ow-blue); /* สีฟ้าเวลา Active */
+    background-color: white;
+    transform: skewX(-5deg); /* ลูกเล่นนิดนึง ให้ช่องมันเอียงเวลาพิมพ์ */
+}
+
+/* Checkbox & Radio */
+.gender .flex {
+    gap: 20px;
+}
+input[type="radio"], input[type="checkbox"] {
+    accent-color: var(--ow-orange); /* ติ๊กแล้วเป็นสีส้ม */
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+/* Textarea */
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 2px;
+    background-color: #f9f9f9;
+    font-family: 'Kanit', sans-serif;
+    resize: none; /* ห้ามยืด */
+    outline: none;
+}
+textarea:focus {
+    border-color: var(--ow-blue);
+}
+
+/* จัดปุ่ม */
+.center {
+    display: flex;
+    justify-content: flex-end; /* ปุ่มชิดขวา ตามสไตล์เกม */
+    margin-top: 30px;
+}
+
+/* ปุ่มกดสไตล์ Overwatch */
+.button {
+    background-color: var(--ow-orange);
+    color: white;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 0; /* ปุ่มเหลี่ยม */
+    font-size: 20px;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    transform: skewX(-15deg); /* ปุ่มเอียงๆ เท่ๆ */
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.1); /* เงาแข็งๆ */
+}
+
+/* แก้ตัวหนังสือในปุ่มไม่ให้เอียงตาม (หรือจะให้เอียงก็ได้ แต่นี่แก้ให้ตรง) */
+/* เนื่องจากมึงไม่ได้ใส่ span ใน html กูเลยปล่อยเอียงไปเลย ดูเร็วดี */
+
+.button:hover {
+    background-color: #ffaa33; /* ส้มสว่างขึ้น */
+    transform: skewX(-15deg) translate(-2px, -2px); /* ลอยขึ้นนิดนึง */
+    box-shadow: 7px 7px 0px rgba(0,0,0,0.1);
+}
+
+.button:active {
+    transform: skewX(-15deg) translate(2px, 2px); /* กดยุบ */
+    box-shadow: 0px 0px 0px rgba(0,0,0,0.1);
+}
