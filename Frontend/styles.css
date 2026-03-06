@@ -176,5 +176,25 @@ textarea:focus {
 
 .button:active {
     transform: skewX(-15deg) translate(2px, 2px); /* กดยุบ */
-    box-shadow: 0px 0px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 0px rgba(190, 187, 187, 0.1);
+}
+
+.message{
+    background-color: darkgreen;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    display: none;
+}
+
+.message.success {
+    color: white;
+    background-color: #2ecc71; 
+    display:block;
+}
+
+.message.danger {
+    color: rgb(231, 229, 229);
+    background-color: #e74c3c; 
+    display:block;
 }
